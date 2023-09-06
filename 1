@@ -1,0 +1,41 @@
+import random
+
+q1 = int(input("w1: "))
+q2 = int(input("w2: "))
+
+arr1 = [random.randint(1, 9) for _ in range(q1)]
+arr2 = [random.randint(1, 9) for _ in range(q2)]
+arr3 = []
+
+print("w1:", arr1)
+print("w2:", arr2)
+
+rem = 0
+leng1 = q1
+leng2 = q2
+
+i = leng1 - 1
+j = leng2 - 1
+
+w1 = 0
+w2 = 0
+
+while (i >= 0 or j >= 0 or rem):
+
+    if i < 0:
+        w1 = 0
+    else:
+        w1 = arr1[i]
+
+    if j < 0:
+        w2 = 0
+    else:
+        w2 = arr2[j]
+
+    arr3.append(int((w1 + w2) + rem) % 10)
+    rem = ((w1 + w2) + rem) // 10
+
+    i -= 1
+    j -= 1
+
+print(arr3[::-1])
